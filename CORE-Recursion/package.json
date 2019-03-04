@@ -1,0 +1,15 @@
+{
+  "name": "CORE-Recursion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Recursion.js",
+  "scripts": {
+    "test": "mocha spec"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
+}
