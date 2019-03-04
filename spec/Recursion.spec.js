@@ -2,7 +2,8 @@ const { expect } = require("chai");
 const {
   getFactorials,
   integersSum,
-  countWhiteSpaces
+  countWhiteSpaces,
+  findPalindrome
 } = require("../Recursion");
 
 describe("getFactorials", () => {
@@ -36,5 +37,19 @@ describe("countWhiteSpaces", () => {
     expect(countWhiteSpaces("a a ")).to.equal(2);
     expect(countWhiteSpaces(" ")).to.equal(1);
     expect(countWhiteSpaces("a a a a")).to.equal(3);
+  });
+});
+
+describe("findPalindrome", () => {
+  it("test base case", () => {
+    expect(findPalindrome("a")).to.equal(true);
+  });
+  it("test non-palindrome", () => {
+    expect(findPalindrome("ab")).to.equal(false);
+  });
+  it("works recursively", () => {
+    expect(findPalindrome("abba")).to.equal(true);
+    expect(findPalindrome("abca")).to.equal(false);
+    expect(findPalindrome("amanaplanacanalpanama")).to.equal(true);
   });
 });
