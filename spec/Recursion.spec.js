@@ -4,7 +4,8 @@ const {
   integersSum,
   countWhiteSpaces,
   findPalindrome,
-  toSingleNumber
+  toSingleNumber,
+  deepFreeze
 } = require("../Recursion");
 
 describe("getFactorials", () => {
@@ -66,5 +67,29 @@ describe("toSingleNumber", () => {
     expect(toSingleNumber(12345)).to.equal(6);
     expect(toSingleNumber(123456)).to.equal(3);
     expect(toSingleNumber(1234567)).to.equal(1);
+  });
+});
+
+describe.only("deepFreeze", () => {
+  it("freezes a single object", () => {
+    const input = {};
+    deepFreeze(input);
+    input.butts = "big booty";
+    expect(input.butts).to.equal(undefined);
+    expect(input).to.eql({});
+  });
+  it("freezes a single nested object", () => {
+    const input = { a: 1, b: { c: 2 } };
+    deepFreeze(input);
+    input.b.c = "3";
+    expect(input.butts).to.equal(undefined);
+    expect(input).to.eql({ a: 1, b: { c: 2 } });
+  });
+  it("freezes a multiple nested object", () => {
+    const input = { a: 1, b: { c: { d: 2 } } };
+    deepFreeze(input);
+    input.b.c.d = "3";
+    expect(input.butts).to.equal(undefined);
+    expect(input).to.eql({ a: 1, b: { c: { d: 2 } } });
   });
 });

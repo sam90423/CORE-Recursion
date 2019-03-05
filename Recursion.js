@@ -42,10 +42,21 @@ function toSingleNumber(num) {
   return toSingleNumber(sum);
 }
 
+function deepFreeze(obj) {
+  for (let i in obj) {
+    if (typeof obj[i] === "object" && obj[i] !== null) {
+      deepFreeze(Object.freeze(obj[i]));
+    }
+  }
+
+  return Object.freeze(obj);
+}
+
 module.exports = {
   getFactorials,
   integersSum,
   countWhiteSpaces,
   findPalindrome,
-  toSingleNumber
+  toSingleNumber,
+  deepFreeze
 };
