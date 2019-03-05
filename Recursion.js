@@ -28,9 +28,21 @@ function findPalindrome(str) {
   return findPalindrome(shorterStr);
 }
 
+function toSingleNumber(num) {
+  let firstNum = Number(num.toString()[0]);
+  let lastNum = Number(num.toString()[1]);
+
+  if (Number.isNaN(lastNum)) return firstNum;
+
+  sum = firstNum + lastNum;
+
+  return sum;
+}
+
 module.exports = {
   getFactorials,
   integersSum,
   countWhiteSpaces,
-  findPalindrome
+  findPalindrome,
+  toSingleNumber
 };

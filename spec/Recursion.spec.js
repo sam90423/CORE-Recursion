@@ -3,7 +3,8 @@ const {
   getFactorials,
   integersSum,
   countWhiteSpaces,
-  findPalindrome
+  findPalindrome,
+  toSingleNumber
 } = require("../Recursion");
 
 describe("getFactorials", () => {
@@ -51,5 +52,17 @@ describe("findPalindrome", () => {
     expect(findPalindrome("abba")).to.equal(true);
     expect(findPalindrome("abca")).to.equal(false);
     expect(findPalindrome("amanaplanacanalpanama")).to.equal(true);
+  });
+});
+
+describe("toSingleNumber", () => {
+  it("return single number", () => {
+    expect(toSingleNumber(1)).to.equal(1);
+  });
+  it("sum of two number", () => {
+    expect(toSingleNumber(11)).to.equal(2);
+  });
+  it("sum of mulitple numbers", () => {
+    expect(toSingleNumber(123)).to.equal(6);
   });
 });
