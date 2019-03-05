@@ -63,6 +63,8 @@ describe("toSingleNumber", () => {
     expect(toSingleNumber(11)).to.equal(2);
   });
   it("sum of mulitple numbers", () => {
-    expect(toSingleNumber(123)).to.equal(6);
+    expect(toSingleNumber(12345)).to.equal(6);
+    expect(toSingleNumber(123456)).to.equal(3);
+    expect(toSingleNumber(1234567)).to.equal(1);
   });
 });

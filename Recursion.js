@@ -29,14 +29,17 @@ function findPalindrome(str) {
 }
 
 function toSingleNumber(num) {
-  let firstNum = Number(num.toString()[0]);
-  let lastNum = Number(num.toString()[1]);
+  const numArr = Array.from(num.toString());
 
-  if (Number.isNaN(lastNum)) return firstNum;
+  if (num.toString().length === 1) return num;
 
-  sum = firstNum + lastNum;
+  let sum = 0;
 
-  return sum;
+  for (let i = 0; i < numArr.length; i++) {
+    sum += Number(numArr[i]);
+  }
+
+  return toSingleNumber(sum);
 }
 
 module.exports = {
